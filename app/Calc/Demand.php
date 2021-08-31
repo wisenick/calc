@@ -77,7 +77,7 @@ class Demand
 			$this->{$fieldName} = $data[$fieldName];
 		}
 
-		$this->age = $this->countAge();
+		$this->age = static::countAge(new DateTime($this->birthday));
 	}
 
 	private function isFieldRequired($fieldName): bool
@@ -101,9 +101,8 @@ class Demand
 		return $this->errors;
 	}
 
-	public function countAge(): int
+	protected static function countAge(DateTime $date): int
 	{
-		$date = new DateTime($this->birthday);
 		$now = new DateTime();
 
 		return ($now->diff($date))->y;
