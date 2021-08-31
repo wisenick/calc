@@ -18,7 +18,7 @@ class CalcController extends Controller
         //
     }
 
-    public function show(Request $request): void
+    public function show(Request $request)
     {
         return view(
             'index',
@@ -28,7 +28,7 @@ class CalcController extends Controller
         );
     }
 
-    public function calc(Request $request): void
+    public function calc(Request $request)
     {
         $demand = DemandFactory::makeDemand($request->input());
 
